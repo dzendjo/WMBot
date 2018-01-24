@@ -1,0 +1,70 @@
+# File name: wmbot.kv
+#:kivy 1.9.0
+# -*- coding: utf-8 -*-
+
+<Wmbot>:
+    AnchorLayout:
+        anchor_y: 'top'
+        BoxLayout:
+            id: _top_box
+            size_hint: 1, None
+            height: 80
+            orientation: 'vertical'
+            canvas:
+                Color:
+                    rgba: 0.5, 0.3, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: 'Here will be a side bar'
+            GridLayout:
+                cols: 2
+                padding: 2
+                Label:
+                    text: 'WMR-WMZ'
+                Label:
+                    text: 'WMZ-WMR'
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: .5, None
+            height: root.height - 80
+            spacing: 5
+            canvas:
+                Color:
+                    rgba: 0.5, 0.1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            AnchorLayout:
+                anchor_y: 'top'
+                OrderForm:
+                    id: _orderform1
+
+
+
+
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: .5, None
+            height: root.height - 80
+            canvas:
+                Color:
+                    rgba: 0.5, 0.1, 0.2, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: 'Here wmz-wmr block'
+            Label:
+                text: 'Here wmz-wmr block'
+
+
+

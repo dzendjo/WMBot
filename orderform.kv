@@ -1,0 +1,134 @@
+# File name: orderform.kv
+#:kivy 1.9.0
+
+<TextInput>
+    size_hint: 1, None
+    height: 30
+    font_size: 12
+
+<SmallLabel@Label>
+    font_size: 12
+    color: .9, .9, .9, 1
+    size_hint: 1, None
+    height: 20
+
+
+<OrderForm@BoxLayout>
+    id: _orderform
+    orientation: 'vertical'
+    padding: 5, 5, 5, 8
+    size_hint: 1, None
+    height: 280
+    canvas:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Order ID, Summa, Rate
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, None
+        height: 60
+        spacing: 5
+        padding: 0, 5, 0, 5
+        BoxLayout:
+            orientation: 'vertical'
+            SmallLabel:
+                text: 'Order number'
+            TextInput:
+                text: 'id'
+        BoxLayout:
+            orientation: 'vertical'
+            SmallLabel:
+                text: 'Now / All'
+            TextInput:
+                text: '1987623 / 6990000'
+
+        BoxLayout:
+            orientation: 'vertical'
+            SmallLabel:
+                text: 'Rate now / Max'
+            TextInput:
+                text: '58.1 / 58.4'
+
+    # Order settings
+    Label:
+        markup: True
+        text: '  [b]Order settings:[/b]'
+        text_size: self.size
+        halign: 'left'
+        size_hint: 1, None
+        height: 15
+    BoxLayout:
+        size_hint: 1, None
+        height: 180
+        orientation: 'vertical'
+        padding: 10, 5, 10, 5
+
+        canvas:
+            Color:
+                rgba: 0.6, 0.6, 0.6, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 5
+            AnchorLayout:
+                anchor_y: 'top'
+                BoxLayout:
+                    size_hint: 1, None
+                    height: 50
+                    orientation: 'vertical'
+                    SmallLabel:
+                        text_size: self.size
+                        valign: 'top'
+                        halign: 'center'
+                        text: 'Top Volume'
+                    TextInput:
+                        text: '600000'
+            BoxLayout:
+                orientation: 'vertical'
+                SmallLabel:
+                    text: 'Binding method'
+                ToggleButton:
+                    text: 'Volume'
+                    group: 'bind_method'
+                ToggleButton:
+                    text: 'Order'
+                    group: 'bind_method'
+
+            AnchorLayout:
+                anchor_y: 'top'
+                BoxLayout:
+                    size_hint: 1, None
+                    height: 100
+                    orientation: 'vertical'
+                    SmallLabel:
+                        text: 'Bonding Volume'
+                    TextInput:
+                        text: '300000'
+                    SmallLabel:
+                        text: 'Minimum spread'
+                    TextInput:
+                        text: '0.3'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 40
+            padding: 0, 5, 0, 0
+            spacing: 5
+            Button:
+                text: 'Apply'
+            Button:
+                text: 'Cancel'
+
+    SmallLabel:
+        text_size: self.size
+        halign: 'left'
+        text: 'Log: Order in work, relax and take it easy!'
+        color: 0.17, 1, 0.13, 1
+
